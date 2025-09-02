@@ -1,5 +1,3 @@
 from .user import UserSerializer
-from .login import LoginSerializer
-from .cadastro import CadastroSerializer
+from .telefone import TelefoneSerializer
 from .finalizarCompra import FinalizarCompraSerializer
-

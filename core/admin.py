@@ -52,6 +52,4 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(models.User, UserAdmin)
-admin.site.register(models.Login)
-admin.site.register(models.Cadastro)
 admin.site.register(models.FinalizarCompra)

@@ -5,15 +5,17 @@ from drf_spectacular.views import (
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView
+)
 from rest_framework.routers import DefaultRouter
 
-from core.views import UserViewSet, LoginViewSet, CadastroViewSet, FinalizarCompraViewSet
+from core.views import UserViewSet, FinalizarCompraViewSet, CadastroAPIView
 
 router = DefaultRouter()
 
 router.register(r'usuarios', UserViewSet, basename='usuarios')
-router.register(r'login', LoginViewSet, basename='login')
-router.register(r'cadastro', CadastroViewSet, basename='cadastro')
 router.register(r'finalizar-compra', FinalizarCompraViewSet, basename='finalizar-compra')
 
 urlpatterns = [
@@ -32,4 +34,7 @@ urlpatterns = [
     ),
     # API
     path('api/', include(router.urls)),
+    path('api/cadastro/', CadastroAPIView.as_view(), name='cadastro'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

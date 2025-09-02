@@ -1,4 +1,3 @@
 from .user import UserViewSet
-from .login import LoginViewSet
-from .cadastro import CadastroViewSet
+from .cadastro import CadastroAPIView
 from .finalizarCompra import FinalizarCompraViewSet
